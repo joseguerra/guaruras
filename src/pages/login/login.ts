@@ -18,13 +18,13 @@ export class LoginPage {
               public loadingCtrl: LoadingController,
               public alertCtrl: AlertController,
               private storage: Storage,
-              public login:Login             
+              public login:Login
               ) {
     storage.get('onesignal_id').then((val) => {
       this.onesignal_id = val;
       console.log('Your token is', val);
     });
-      
+
 
   }
 
@@ -38,13 +38,15 @@ export class LoginPage {
 
     this.login.login(this.username,this.password,this.onesignal_id).subscribe(
       data => {
+        console.log(data);
         this.storage.set('token', data.token);
         this.storage.set('perfil_id', data.perfil_id);
+        this.storage.set('usernmae', data.username);
         loading.dismiss();
         this.navCtrl.setRoot(HomePage);
       },
-      err => {        
-        if(err.status == 400){          
+      err => {
+        if(err.status == 400){
           loading.dismiss();
           let alert = this.alertCtrl.create({
             title: 'Error',

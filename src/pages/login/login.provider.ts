@@ -26,6 +26,14 @@ export class Login {
     return response;
 
   }
+  change_password(username,old_password,new_password, token){
+    let params = { username: username, old_password:old_password, new_password:new_password };
+
+    var url = this.rutas.change_password(token);
+    var response = this.http.post(url,params).map(res => res.json());
+    return response;
+
+  }
 
 
 }
