@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { PasswordPage} from '../pages/password/password';
-
+import { ResetPasswordPage } from '../pages/password/reset_password';
 import { OneSignal } from '@ionic-native/onesignal';
 import { Device } from '@ionic-native/device';
 import { Storage } from '@ionic/storage';
@@ -23,8 +23,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private oneSignal: OneSignal,
               private device: Device,
@@ -59,12 +59,12 @@ export class MyApp {
         });
 
         this.oneSignal.endInit();
-        
+
         this.oneSignal.getIds().then((data)=>{
-          this.storage.set('onesignal_id', data.userId);  
+          this.storage.set('onesignal_id', data.userId);
         })
 
-  
+
       }
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

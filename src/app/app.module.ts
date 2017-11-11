@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { PasswordPage} from '../pages/password/password';
+import { ResetPasswordPage } from '../pages/password/reset_password';
+import { ResetPasswordPageTwo } from '../pages/password/reset_password_two';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +21,7 @@ import { IonicStorageModule } from '@ionic/storage';
 /*Providers*/
 
 import {Rutas} from './rute';
-import {Login} from '../pages/login/login.provider'; 
+import {Login} from '../pages/login/login.provider';
 import {Phone} from '../pages/list/phone.provider';
 
 @NgModule({
@@ -28,7 +30,9 @@ import {Phone} from '../pages/list/phone.provider';
     HomePage,
     ListPage,
     LoginPage,
-    PasswordPage
+    PasswordPage,
+    ResetPasswordPage,
+    ResetPasswordPageTwo
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ import {Phone} from '../pages/list/phone.provider';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,14 +48,16 @@ import {Phone} from '../pages/list/phone.provider';
     HomePage,
     ListPage,
     LoginPage,
-    PasswordPage
+    PasswordPage,
+    ResetPasswordPage,
+    ResetPasswordPageTwo
   ],
   providers: [
     StatusBar,
     SplashScreen,
     OneSignal,
     SMS,
-    BackgroundGeolocation, 
+    BackgroundGeolocation,
     Device,
     Login,
     Phone,

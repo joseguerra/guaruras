@@ -4,7 +4,7 @@ import { NavController,LoadingController,AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {HomePage } from '../home/home';
 import {Login} from './login.provider'
-
+import { PasswordPage} from '../pages/password/password';
 
 @Component({
   selector: 'page-login',
@@ -27,7 +27,9 @@ export class LoginPage {
 
 
   }
-
+  reset_pass() {
+    this.navCtrl.setRoot(ResetPasswordPage);
+  }
   home(){
 
     let loading = this.loadingCtrl.create({

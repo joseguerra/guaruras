@@ -35,5 +35,22 @@ export class Login {
 
   }
 
+  reset_password_one(correo){
+    let params = { username: correo};
+
+    var url = this.rutas.reset_password()+"?username="+correo;
+    var response = this.http.get(url,params).map(res => res.json());
+    return response;
+
+  }
+  reset_password_two(token, pass){
+    let params = { new_password: pass, token: token};
+
+    var url = this.rutas.reset_password();
+    var response = this.http.get(url,params).map(res => res.json());
+    return response;
+
+  }
+
 
 }

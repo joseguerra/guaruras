@@ -9,6 +9,10 @@ export class Rutas{
   change_password(token){
     return this.urlbase+ "api/v1/change-password/?token={0}".replace("{0}", token);
   }
+  reset_password(){
+    return this.urlbase+ "api/v1/reset-password/";
+  }
+
   phone(perfil_id){
       return this.urlbase+ "/api/v1/perfil/"+perfil_id+"/telefono/";
   }
